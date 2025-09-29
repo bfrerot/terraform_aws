@@ -1,0 +1,40 @@
+########## AWS account configuration ##########
+
+
+### Create or have an AWS account
+
+### Create or have a user account
+Here we should have an account dedicated to our Terraform operations
+In my case, for simplicity, I chosed to hav an account attached to AdminFullAccess Policy
+
+### Configure AWS CLI on Windows
+msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi
+/!\ you should restart your CLI window
+To check if AWS CLI is installed:
+aws --version
+You should have something like this:
+C:\> aws --version
+aws-cli/2.30.6 Python/3.13.7 Windows/11 exe/AMD64
+
+### Install AWS parameters
+Go in C:\Users\[USERNAME]\
+Create .aws folder
+Go into it
+create a file names "credentials"
+set the following into it:
+[default]
+aws_access_key_id = PASTE_ACCESS_KEY_ID_HERE
+aws_secret_access_key = PASTE_SECRET_ACCESS_KEY_HERE
+/!\ do not forget to save
+
+To check:
+aws sts get-caller-identity
+You should have something like this:
+C:\> aws sts get-caller-identity
+{
+    "UserId": "AIDRSYHTYNVACRFDU34HG",
+    "Account": "185527916238",
+    "Arn": "arn:aws:iam::185527916238:user/aws.navet.terraform"
+}
+
+ 
